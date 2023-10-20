@@ -5,10 +5,20 @@ import br.unitins.model.Notice;
 public class NoticeResponseDTO {
     private String text;
     private String title;
+    private String lero;
 
     public NoticeResponseDTO(Notice notice) {
         this.text = notice.text;
         this.title = notice.title;
+        this.lero = "lerolero";
+    }
+
+    public String getLero() {
+        return lero;
+    }
+
+    public void setLero(String lero) {
+        this.lero = lero;
     }
 
     public String getText() {

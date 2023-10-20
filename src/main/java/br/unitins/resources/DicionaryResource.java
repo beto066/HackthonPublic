@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import br.unitins.dto.DicionaryDTO;
 import br.unitins.dto.NoticeDTO;
 import br.unitins.model.Dicionary;
-import br.unitins.model.DicionaryRepository;
+import br.unitins.repository.DicionaryRepository;
 import br.unitins.dto.NoticeResponseDTO;
 import br.unitins.model.Dicionary;
 import br.unitins.model.Notice;
@@ -18,7 +18,6 @@ import jakarta.ws.rs.POST;
 import jakarta.ws.rs.core.Response;
 
 public class DicionaryResource {
- 
     @Inject
     private DicionaryRepository repository;
 

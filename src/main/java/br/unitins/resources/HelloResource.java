@@ -6,11 +6,13 @@ import jakarta.ws.rs.core.Response;
 
 import java.net.URI;
 import java.util.ArrayList;
+import java.util.List;
 
 import br.unitins.dto.NoticeDTO;
 import br.unitins.dto.NoticeResponseDTO;
 import br.unitins.model.Notice;
 import br.unitins.repository.NoticeRepository;
+import jakarta.annotation.security.PermitAll;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.BadRequestException;
@@ -27,15 +29,22 @@ public class HelloResource {
     @Inject
     private NoticeRepository repository;
     
+    // @GET
+    // @Produces(MediaType.TEXT_PLAIN)
+    // public String hello() {
+    //     return "sfgfjd";
+    // }
+
     @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    public String hello() {
-        return "sfgfjd";
+    @PermitAll
+    public List<NoticeResponseDTO> getAll() {
+        return repository.findAllNotices();
     }
 
     @GET
     @Path("/{id}")
     public NoticeResponseDTO get(@PathParam("id") Long id) {
+        System.out.println(repository.findById(id));
         return new NoticeResponseDTO(repository.findById(id));
     }
 

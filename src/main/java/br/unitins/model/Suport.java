@@ -6,6 +6,6 @@ import java.util.List;
 @Entity 
 
 public class Suport extends DefaultEntity{
-    public User usuario;
+    // public User usuario;
     
 }
