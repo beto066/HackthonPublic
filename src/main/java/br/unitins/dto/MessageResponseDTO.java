@@ -7,7 +7,6 @@ import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 
-@Entity
 public class MessageResponseDTO{
     public String text;
     public String topic;

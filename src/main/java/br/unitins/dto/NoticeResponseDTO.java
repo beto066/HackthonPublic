@@ -7,7 +7,7 @@ public class NoticeResponseDTO {
     private String title;
     private String lero;
 
-    public NoticeResponseDTO(Notice notice) {
+    public NoticeResponseDTO(Notice notice)/* NoticiaReponse Noticia -> Message */ {
         this.text = notice.text;
         this.title = notice.title;
         this.lero = "lerolero";

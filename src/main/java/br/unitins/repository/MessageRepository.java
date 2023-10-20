@@ -1,11 +1,11 @@
 package br.unitins.repository;
 
-import br.unitins.model.Message;
+import br.unitins.model.MessageDTO;
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
 import jakarta.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
-public class MessageRepository implements PanacheRepository<Message>  {
+public class MessageRepository implements PanacheRepository<MessageDTO>  {
     // public List<NoticeResponseDTO> findAllNotices() {
     //     return listAll().stream()
     //         .map(notices -> new NoticeResponseDTO(notices))
