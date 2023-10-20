@@ -5,16 +5,16 @@ import java.util.List;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 
 @Entity
 public class Message extends DefaultEntity {
     public String text;
     public String title;
-    // @OneToMany(
-    //     mappedBy = "message",
-    //     cascade = CascadeType.ALL
-    //     //orphanRemoval = true
-    // )
-    // public List<Suport> suports;
+    
+    @ManyToOne
+    @JoinColumn(name = "id_suport")
+    public Suport suport;
 }
