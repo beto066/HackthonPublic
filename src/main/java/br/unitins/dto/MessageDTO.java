@@ -8,15 +8,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 
 @Entity
-public class MessageDTO extends DefaultEntity {
+public class MessageDTO {
     public String text;
     public String topic;
-    @OneToMany(
-        mappedBy = "message",
-        cascade = CascadeType.ALL
-        //orphanRemoval = true
-    )
-    public List<Suportt> suport;
+    public List<Suport> suport;
 /*
  * String topic
  * 
