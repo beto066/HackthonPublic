@@ -11,10 +11,10 @@ import jakarta.persistence.OneToMany;
 public class Message extends DefaultEntity {
     public String text;
     public String title;
-    @OneToMany(
-        mappedBy = "message",
-        cascade = CascadeType.ALL
-        //orphanRemoval = true
-    )
-    public List<Dicionary> dicionary;
+    // @OneToMany(
+    //     mappedBy = "message",
+    //     cascade = CascadeType.ALL
+    //     //orphanRemoval = true
+    // )
+    // public List<Suport> suports;
 }

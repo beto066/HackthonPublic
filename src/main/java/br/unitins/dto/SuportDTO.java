@@ -6,12 +6,6 @@ import jakarta.persistence.ManyToOne;
 
 import java.util.List;
 
-import br.unitins.model.DefaultEntity;
-
-@Entity 
-public class SuportDTO extends DefaultEntity {
-    // public User usuario;
-    @ManyToOne
-    @JoinColumn(name = "id_notice")
+public class SuportDTO {
     private MessageDTO message;
 }
