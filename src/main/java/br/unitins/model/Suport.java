@@ -10,6 +10,7 @@ import java.util.List;
 public class Suport extends DefaultEntity{
     public String name;
     public String email;
+    public String senha;
 
     @OneToMany(
         mappedBy = "suport",

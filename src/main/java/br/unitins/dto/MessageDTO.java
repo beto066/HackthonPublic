@@ -1,19 +1,40 @@
 package br.unitins.dto;
-//import java.util.ArrayList;
-import java.util.List;
 
-import br.unitins.model.DefaultEntity;
+import br.unitins.model.Message;
 import br.unitins.model.Suport;
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
 
 public class MessageDTO{
-    public String text;
-    public String topic;
-    public List<Suport> suport;
-/*
- * String topic
- * 
- */
+    private String text;
+    private String topic;
+    private Long suportId;
+
+    public void toMessage(Message message, Suport suport) {
+        message.text = this.text;
+        message.topic = this.topic;
+        message.suport = suport;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public Long getSuportId() {
+        return suportId;
+    }
+
+    public void setSuportId(Long suportId) {
+        this.suportId = suportId;
+    }
+
+    public String getTopic() {
+        return topic;
+    }
+
+    public void setTopic(String topic) {
+        this.topic = topic;
+    }
 }

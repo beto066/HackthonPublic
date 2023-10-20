@@ -12,7 +12,7 @@ import jakarta.persistence.OneToMany;
 @Entity
 public class Message extends DefaultEntity {
     public String text;
-    public String title;
+    public String topic;
     
     @ManyToOne
     @JoinColumn(name = "id_suport")
