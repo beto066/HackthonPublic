@@ -4,3 +4,7 @@
 -- insert into myentity (id, field) values(2, 'field-2');
 -- insert into myentity (id, field) values(3, 'field-3');
 -- alter sequence myentity_seq restart with 4;
+
+-- insert into Notice(id, text, title) values (nextval('hibernate_sequence'), 'Fredson', '111');
+-- insert into Notice(id, text, title) values (nextval('hibernate_sequence'), 'Silvano', '222');
+-- insert into Notice(id, text, title) values (nextval('hibernate_sequence'), 'Marco', '333');

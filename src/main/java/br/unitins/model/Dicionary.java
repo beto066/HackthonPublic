@@ -4,11 +4,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
-// @Entity
+@Entity
 public class Dicionary extends DefaultEntity {  
-    // public String name;
+    public String name;
 
-    // @ManyToOne
-    // @JoinColumn(name = "id_notice")
-    // public Notice notice;
+    @ManyToOne
+    @JoinColumn(name = "id_notice")
+    public Notice notice;
 }
