@@ -12,9 +12,9 @@ public class Suport extends DefaultEntity{
     public String email;
 
     @OneToMany(
-        mappedBy = "message",
+        mappedBy = "suport",
         cascade = CascadeType.ALL
         //orphanRemoval = true
     )
-    public Message message;
+    public List<Message> messages;
 }
