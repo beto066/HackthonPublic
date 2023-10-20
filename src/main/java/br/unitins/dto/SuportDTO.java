@@ -7,8 +7,6 @@ import java.util.List;
 
 import br.unitins.model.Suport;
 
-@Entity 
-
 public class SuportDTO {
     private String name;
     public String getName() {
