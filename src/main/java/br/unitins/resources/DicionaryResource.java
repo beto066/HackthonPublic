@@ -1,9 +1,11 @@
 package br.unitins.resources;
 
+import java.lang.reflect.Array;
 import java.net.URI;
 import java.util.ArrayList;
 
 import br.unitins.dto.DicionaryDTO;
+import br.unitins.dto.DicionaryResponseDTO;
 import br.unitins.dto.NoticeDTO;
 import br.unitins.model.Dicionary;
 import br.unitins.repository.DicionaryRepository;
@@ -14,17 +16,33 @@ import br.unitins.repository.NoticeRepository;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.BadRequestException;
+import jakarta.ws.rs.Consumes;
+import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
+import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
+@Path("/dicionary")
+@Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
 public class DicionaryResource {
     @Inject
     private DicionaryRepository repository;
 
+    @GET
+    @Path("/{id}")
+    public DicionaryResponseDTO get(@PathParam("id") Long id) {
+        System.out.println(repository.findById(id));
+        return new DicionaryResponseDTO(repository.findById(id));
+    }
+
     @POST
     @Transactional
     // @RolesAllowed({"Admin"})
-    public Dicionary create(DicionaryDTO dto) {
+    public Response create(DicionaryDTO dto) {
        // if (!NoticeDTO.isValid(dto)){
           //  throw new BadRequestException();
        // }
@@ -40,6 +58,7 @@ public class DicionaryResource {
 
         this.repository.persist(entity);
 
-        return entity;
+        DicionaryResponseDTO responseDTO = new DicionaryResponseDTO(entity);
+        return Response.created(URI.create("/ola/" + entity.id)).entity(responseDTO).build();
     }   
 }
