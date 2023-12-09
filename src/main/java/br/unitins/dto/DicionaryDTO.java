@@ -11,6 +11,10 @@ public class DicionaryDTO{
     private String name;
     private Long noticeId;
 
+    public static boolean isValid(DicionaryDTO dto){
+        return (dto.name != null && dto.name.length() > 2);
+    }
+
     public Long getNoticeId() {
         return noticeId;
     }

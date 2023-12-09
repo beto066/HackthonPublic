@@ -8,6 +8,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class Message extends DefaultEntity {
@@ -17,4 +18,7 @@ public class Message extends DefaultEntity {
     @ManyToOne
     @JoinColumn(name = "id_suport")
     public Suport suport;
+
+    @OneToOne
+    public Usuario usuario;
 }

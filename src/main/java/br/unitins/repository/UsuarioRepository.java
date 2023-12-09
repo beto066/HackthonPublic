@@ -3,16 +3,16 @@ package br.unitins.repository;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import br.unitins.dto.SuportResponseDTO;
-import br.unitins.model.Suport;
+import br.unitins.dto.UsuarioResponseDTO;
+import br.unitins.model.Usuario;
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
 import jakarta.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
-public class SuportRepository implements PanacheRepository<Suport>  {
-    public List<SuportResponseDTO> findAllSuports() {
+public class UsuarioRepository implements PanacheRepository<Usuario>  {
+    public List<UsuarioResponseDTO> findAllUsuarios() {
         return listAll().stream()
-            .map(suports -> new SuportResponseDTO(suports))
+            .map(usuarios -> new UsuarioResponseDTO(usuarios))
             .collect(Collectors.toList());
     }
 

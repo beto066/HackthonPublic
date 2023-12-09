@@ -5,23 +5,17 @@ import java.util.ArrayList;
 import br.unitins.model.Message;
 import br.unitins.model.Suport;
 
-public class SuportResponseDTO {
+public class SuportResumeDTO {
     private Long id;
     private String name;
     private String email;
     private String senha;
-    private ArrayList<MessageResponseDTO> messages;
 
-    public SuportResponseDTO(Suport suport) {
+    public SuportResumeDTO(Suport suport) {
         this.id = suport.id;
         this.name = suport.name;
         this.email = suport.email;
         this.senha = suport.senha;
-        if (suport.messages != null) {
-            suport.messages.forEach((Message value) -> {
-                getMessage().add(new MessageResponseDTO(value));
-            });
-        }
     }
 
     public Long getId() {
@@ -47,14 +41,5 @@ public class SuportResponseDTO {
     }
     public void setSenha(String senha) {
         this.senha = senha;
-    }
-    public ArrayList<MessageResponseDTO> getMessage() {
-        if (messages == null) {
-            messages = new ArrayList<MessageResponseDTO>();
-        }
-        return messages;
-    }
-    public void setMessage(ArrayList<MessageResponseDTO> messages) {
-        this.messages = messages;
     }
 }

@@ -6,12 +6,19 @@ import br.unitins.model.Suport;
 public class MessageDTO{
     private String text;
     private String topic;
-    private Long suportId;
 
-    public void toMessage(Message message, Suport suport) {
+    public void toMessage(Message message) {
         message.text = this.text;
         message.topic = this.topic;
-        message.suport = suport;
+    }
+
+    public static boolean isValid(MessageDTO dto){
+        return (
+            dto.text != null && dto.text.length() > 2 &&
+            (dto.topic.equalsIgnoreCase("Denuncia") ||
+            dto.topic.equalsIgnoreCase("Reclamação") ||
+            dto.topic.equalsIgnoreCase("Elogio"))
+        );
     }
 
     public String getText() {
@@ -21,15 +28,6 @@ public class MessageDTO{
     public void setText(String text) {
         this.text = text;
     }
-
-    public Long getSuportId() {
-        return suportId;
-    }
-
-    public void setSuportId(Long suportId) {
-        this.suportId = suportId;
-    }
-
     public String getTopic() {
         return topic;
     }

@@ -35,7 +35,6 @@ public class DicionaryResource {
     @GET
     @Path("/{id}")
     public DicionaryResponseDTO get(@PathParam("id") Long id) {
-        System.out.println(repository.findById(id));
         return new DicionaryResponseDTO(repository.findById(id));
     }
 
@@ -43,9 +42,9 @@ public class DicionaryResource {
     @Transactional
     // @RolesAllowed({"Admin"})
     public Response create(DicionaryDTO dto) {
-       // if (!NoticeDTO.isValid(dto)){
-          //  throw new BadRequestException();
-       // }
+       if (!DicionaryDTO.isValid(dto)){
+           throw new BadRequestException();
+       }
 
         // EsporteRepository rEsporte = new EsporteRepository();
         // CidadeRepository rCidade = new CidadeRepository();
@@ -59,6 +58,6 @@ public class DicionaryResource {
         this.repository.persist(entity);
 
         DicionaryResponseDTO responseDTO = new DicionaryResponseDTO(entity);
-        return Response.created(URI.create("/ola/" + entity.id)).entity(responseDTO).build();
+        return Response.created(URI.create("/dicionary/" + entity.id)).entity(responseDTO).build();
     }   
 }

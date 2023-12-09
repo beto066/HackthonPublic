@@ -25,7 +25,7 @@ import jakarta.ws.rs.PathParam;
 @Path("/notice")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-public class HelloResource {
+public class NoticeResource {
     @Inject
     private NoticeRepository repository;
     
@@ -44,7 +44,6 @@ public class HelloResource {
     @GET
     @Path("/{id}")
     public NoticeResponseDTO get(@PathParam("id") Long id) {
-        System.out.println(repository.findById(id));
         return new NoticeResponseDTO(repository.findById(id));
     }
 
@@ -68,6 +67,6 @@ public class HelloResource {
         this.repository.persist(entity);
 
         NoticeResponseDTO responseDTO = new NoticeResponseDTO(entity);
-        return Response.created(URI.create("/ola/" + entity.id)).entity(responseDTO).build();
+        return Response.created(URI.create("/notice/" + entity.id)).entity(responseDTO).build();
     }
 }
